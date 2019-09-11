@@ -1,24 +1,32 @@
 import React from "react"
 import { connect } from "react-redux"
+import { loadAdDetails } from "../../actions/ads"
 import ViewAd from "./ViewAd"
 import NotFound from "./NotFound"
 
 class ViewAdContainer extends React.Component {
+  componentDidMount() {
+    const id = parseInt(this.props.match.params.id)
+    if (!this.props.ad.id !== id) {
+      this.props.loadAdDetails(id)
+    }
+  }
+
   render() {
-    if (!this.props.ads.length) {
+    const id = parseInt(this.props.match.params.id)
+    if (this.props.ad.id !== id) {
       return <NotFound />
     }
-    const ad = this.props.ads.find(ad =>
-      parseInt(this.props.match.params.id) === ad.id)
-    if (!ad) {
-      return <NotFound />
-    }
-    return <ViewAd ad={ad} />
+    return <ViewAd ad={this.props.ad} />
   }
 }
 
 const mapStateToProps = state => ({
-  ads: state.ads
+  ad: state.ad
 })
 
-export default connect(mapStateToProps)(ViewAdContainer)
+const mapDispatchToProps = {
+  loadAdDetails,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ViewAdContainer)
