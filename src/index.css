@@ -37,3 +37,117 @@ code {
   flex-flow: row nowrap;
   justify-content: space-evenly;
 }
+
+.NotFound {
+  height: 5rem;
+  width: 80vw;
+  background-color: #DFDFDF;
+  color: #000000;
+  margin: 1rem;
+  padding: 0;
+  border-radius: 1rem;
+  font-size: 2.5rem;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.ListAd {
+  height: 5rem;
+  width: 80vw;
+  background-color: #DFDFDF;
+  color: #000000;
+  margin: 1rem;
+  padding: 0;
+  border-radius: 1rem;
+  font-size: 2.5rem;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  text-decoration: none;
+}
+
+.ListAd:hover {
+  background-color: #80BFFF;
+}
+
+.ListAdPictureBox {
+  width: 20%;
+  height: 4.5rem;
+  margin: 0.25rem;
+  padding: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.ListAdTitle {
+  width: 60%;
+  margin: 0;
+  padding: 0;
+}
+
+.ListAdPrice {
+  width: 20%;
+  margin: 0;
+  padding: 0;
+}
+
+.ListAdPicture {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.ViewAd {
+}
+
+.ViewAdColumns {
+  width: 80vw;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-evenly;
+}
+
+.ViewAdLeft {
+  width: 45%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+}
+
+.ViewAdRight {
+  width: 45%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+}
+
+.ViewAdDescription {
+  margin-top: 0;
+}
+
+.ViewAdPicture {
+  width: 100%;
+}
+
+.ViewAdDetail {
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-evenly;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.ViewAdDetailName {
+  width: 25%;
+  min-width: 7rem;
+  text-align: left;
+  margin: 0;
+}
+
+.ViewAdDetailValue {
+  width: 75%;
+  text-align: left;
+  margin: 0;
+}

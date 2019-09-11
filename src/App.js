@@ -1,5 +1,7 @@
 import React from "react"
+import { connect } from "react-redux"
 import { Route } from "react-router-dom"
+import { loadAds } from "./actions/ads"
 import Title from "./components/Title"
 import ListAds from "./components/ListAds"
 import ViewAd from "./components/ViewAd"
@@ -7,6 +9,10 @@ import CreateAd from "./components/CreateAd"
 import Footer from "./components/Footer"
 
 class App extends React.Component {
+  componentDidMount() {
+    this.props.loadAds()
+  }
+
   render() {
     return (
       <div className="App">
@@ -20,4 +26,8 @@ class App extends React.Component {
   }
 }
 
-export default App
+const mapDispatchToProps = {
+  loadAds,
+}
+
+export default connect(null, mapDispatchToProps)(App)

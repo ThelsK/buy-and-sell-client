@@ -1,15 +1,24 @@
 import React from "react"
+import { connect } from "react-redux"
+import ViewAd from "./ViewAd"
+import NotFound from "./NotFound"
 
-class ViewAd extends React.Component {
+class ViewAdContainer extends React.Component {
   render() {
-    return (
-      <div className="ViewAd">
-        <h3>
-          ---View an advertisement---
-        </h3>
-      </div>
-    )
+    if (!this.props.ads.length) {
+      return <NotFound />
+    }
+    const ad = this.props.ads.find(ad =>
+      parseInt(this.props.match.params.id) === ad.id)
+    if (!ad) {
+      return <NotFound />
+    }
+    return <ViewAd ad={ad} />
   }
 }
 
-export default ViewAd
+const mapStateToProps = state => ({
+  ads: state.ads
+})
+
+export default connect(mapStateToProps)(ViewAdContainer)
